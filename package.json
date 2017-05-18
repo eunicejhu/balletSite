@@ -6,6 +6,9 @@
     "url": "https://github.com/eunicejhu/webpackdemo.git",
     "type": "git"
   },
+  "scripts": {
+  	"test": "node scripts/test.js"
+  },
   "author": "ZUOQIN HU",
   "license": "MIT",
   "dependencies": {
