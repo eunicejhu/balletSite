@@ -1,0 +1,14 @@
+{
+  "name": "webpackdemo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/eunicejhu/webpackdemo.git",
+    "type": "git"
+  },
+  "author": "ZUOQIN HU",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^2.5.1"
+  }
+}
