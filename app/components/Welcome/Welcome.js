@@ -5,7 +5,7 @@ import styles from './Welcome.css';
 const Welcome = () => (
   <div className={styles.root}>
     <span>{config.greetText}</span>
-    <span className="hello"></span>
+    <span className={styles.bold}>what</span>
   </div>
 );
 

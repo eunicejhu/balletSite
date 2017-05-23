@@ -42,6 +42,10 @@ const config = {
         use: [
           {
             loader: 'style-loader',
+            // add CSS to the DOM
+            options: {
+              sourceMap: true,
+            },
           },
           {
             loader: 'css-loader',
