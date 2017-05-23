@@ -1,0 +1,84 @@
+// DONE: 
+// - path concatenation with path.join, instead of '+'
+
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+
+const config = {
+  devtool: 'inline-source-map',
+
+  entry: [
+    'react-hot-loader/patch',
+    // activate HMR for React
+
+    // 'webpack/hot/only-dev-server',
+    // bundle the client for hot reloading
+    // only- means to only hot reload for successful updates
+
+    path.join(__dirname, 'app', 'main.js'),
+  ],
+  
+  output: {
+    path: path.join(__dirname, 'build'),
+    filename: 'bundle.js',
+    publicPath: '/',
+    // necessary for HMR to know where to load the hot update chunks
+  },
+  module: {
+    rules: [
+      {
+        test: /\.json$/,
+        use: ['json-loader'],
+      },
+      {
+        test: /\.jsx?$/,
+        use: ['babel-loader'],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              module: true,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+          },
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: function() {
+          return [autoprefixer];
+        },
+        devServer: {
+          colors: true, 
+          historyApiFallback: false,
+          inline: true,
+          hot: true,
+        },
+      },
+    }),
+    new webpack.BannerPlugin('Author: ZUOQIN HU'),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'app', 'index.tmpl.html'),
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    // enable HMR globally
+    new webpack.NamedModulesPlugin(),
+    // prints more readable module names in the browser console on HMR updates
+  ],
+};
+
+module.exports = config;

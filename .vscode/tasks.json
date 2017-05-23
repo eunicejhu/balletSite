@@ -1,0 +1,51 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "showOutput": "always",
+    "suppressTaskName": true,
+    "tasks": [
+        {
+            "taskName": "install",
+            "command": "npm",
+            "isShellCommand": true,
+            "args": ["install"]
+        },
+        {
+            "taskName": "update",
+            "command": "npm",
+            "isShellCommand": true,
+            "args": ["update"]
+        },
+        {
+            "taskName": "test",
+            "command": "npm",
+            "isShellCommand": true,
+            "args": ["run", "test"]
+        },
+        {
+            "taskName": "start",
+            "command": "npm",
+            "isShellCommand": true,
+            "args": ["run", "start"]
+        },
+        {
+          "taskName": "run in chrome",
+          "command": "Chrome",
+          "osx": {
+            "command": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+          },
+          "args":[
+            "${file}"
+          ]
+        },
+        {
+          "taskName": "webpack",
+          "command": "webpack"
+        },
+        {
+          "taskName": "devserver",
+          "command": "node_modules/.bin/webpack-dev-server"
+        }
+    ]
+}
