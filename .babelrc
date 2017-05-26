@@ -2,7 +2,9 @@
   "presets": [
     ["es2015", {"modules": false}],
     // webpack understands the native import syntax, and uses it for tree shaking
-    "react"
+    "es2017",
+    "react",
+    "flow"
   ],
   "plugins": [
     "react-hot-loader/babel"

@@ -17,7 +17,7 @@ const config = {
     // bundle the client for hot reloading
     // only- means to only hot reload for successful updates
 
-    path.join(__dirname, 'app', 'main.js'),
+    path.join(__dirname, 'src', 'index.js'),
   ],
   
   output: {
@@ -76,7 +76,12 @@ const config = {
     }),
     new webpack.BannerPlugin('Author: ZUOQIN HU'),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'app', 'index.tmpl.html'),
+      title: 'Demo Site',
+      showErrors: true,
+      cache: true,
+      // hash: true,
+      // favicon: favicon.ico,
+      template: path.join(__dirname, 'src', 'index.tmpl.html'),
     }),
     new webpack.HotModuleReplacementPlugin(),
     // enable HMR globally

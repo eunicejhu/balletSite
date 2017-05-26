@@ -1,0 +1,9 @@
+:local(.root) {
+  background-color: #fff;
+  padding: 10px;
+  color: black;
+}
+
+:local(.bold) {
+  color: red;
+}
