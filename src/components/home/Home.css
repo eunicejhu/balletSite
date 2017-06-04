@@ -100,25 +100,25 @@
   }
 }
 
-/* gut styles */
-:local(.gut) {
+/* stub styles */
+:local(.stub) {
   position: absolute;
   top: 88vh;
   height: 11vh;
   background-color: transparent;;
   width: 100%;
 }
-:local(.gut) div {
+:local(.stub) div {
   width: 100%;
   z-index: 1;
   text-align: center;
   transform: translateY(90%);
 }
-:local(.gut) span.split {
+:local(.stub) span.split {
   border-right: 2px solid #FFB2B2;
 }
 
-:local(.gut) h1 {
+:local(.stub) h1 {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -130,7 +130,7 @@
 }
 
 @media (max-width: 960px) {
-  :local(.gut) h1 {
+  :local(.stub) h1 {
     margin: 0;
   }
 }

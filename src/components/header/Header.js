@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './Header.css';
 import { propertyOf } from 'underscore';
@@ -39,7 +38,8 @@ class Header extends Component {
           key={index} 
           className={['navbar-nav-', menu.toLowerCase(), isActive ? ' ' + styles.active : ''].join('')} 
           onClick={() => this.setState({activeMenuIndex: index})} >
-          <a><Route path={getPathFromTabName(menuTranslation.toLowerCase())}> { menuTranslation.toUpperCase() } </Route></a>
+          <a>{ menuTranslation.toUpperCase() }
+          </a>
         </li>
       );
     }

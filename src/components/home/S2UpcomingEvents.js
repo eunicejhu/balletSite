@@ -5,17 +5,16 @@ import galaImage from '../../../static/images/10.jpg';
 import stageImage from '../../../static/images/4.jpg';
 
 const S2UpcomingEvents = ({ className, translations }) => {
-  const { S2UpcomingEventsTranslations, CommonTranslations } = translations;
   return (
     <section className={className}>
       <article>
         <figure>
           <img src={galaImage} alt=""/>
           <figcaption>
-            <h2>{S2UpcomingEventsTranslations.gala}</h2>
-            <time dateTime="2017-06-18">{S2UpcomingEventsTranslations.galaTime}</time>
-            <p>{CommonTranslations.shortDescription}</p>
-            <button>{S2UpcomingEventsTranslations.buyTheTicket}</button>
+            <h2>{translations.gala}</h2>
+            <time dateTime="2017-06-18">{translations.galaTime}</time>
+            <p>{translations.shortDescription}</p>
+            <button>{translations.buyTheTicket}</button>
           </figcaption>
         </figure>
       </article>
@@ -23,10 +22,10 @@ const S2UpcomingEvents = ({ className, translations }) => {
         <figure>
           <img src={stageImage} alt=""/>
           <figcaption>
-            <h2>{S2UpcomingEventsTranslations.stage}</h2>
-            <time dateTime="2017-07-3">{S2UpcomingEventsTranslations.stageTime}</time>
-            <p>{CommonTranslations.shortDescription}</p>
-            <button>{S2UpcomingEventsTranslations.inscription}</button>
+            <h2>{translations.stage}</h2>
+            <time dateTime="2017-07-3">{translations.stageTime}</time>
+            <p>{translations.shortDescription}</p>
+            <button>{translations.inscription}</button>
           </figcaption>
         </figure>
       </article>

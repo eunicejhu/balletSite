@@ -6,6 +6,7 @@ import Header from './components/header/Header';
 import Main from './components/main/Main';
 import Footer from './components/footer/Footer';
 
+
 const DEFAULT_LOCAL = 'en';
 
 class App extends Component {
@@ -23,7 +24,7 @@ class App extends Component {
       <div id="wrapper">
         <header><Header local={local} /></header>
         <main>
-          <Main local={local} />
+            <Main local={local} />
         </main>
         <footer><Footer local={local} /></footer>
       </div>

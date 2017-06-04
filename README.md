@@ -1,5 +1,4 @@
 TODO:
-  - [set up Jest, enzyme](https://www.theodo.fr/blog/2017/04/enzyme-fast-and-simple-react-testing/)
   - Set up routers
   - loading spinner
   - CSS animations
@@ -18,6 +17,8 @@ TODO:
   - upgrade npm 4 to npm 5
 
 DONE:
+  - [setup object-rest-spread](https://babeljs.io/docs/plugins/transform-object-rest-spread/)
+  - [set up Jest, enzyme](https://www.theodo.fr/blog/2017/04/enzyme-fast-and-simple-react-testing/)
   - styling home page
   - responsive layout (images)
   - social media widgets

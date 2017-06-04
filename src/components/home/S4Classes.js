@@ -7,43 +7,42 @@ import image3 from '../../../static/images/15.jpg';
 import image4 from '../../../static/images/16.jpg';
 
 const S4Classes = ({ className, translations }) => {
-  const { S4ClassesTranslations, CommonTranslations } = translations;
   return (
      <section className={className}>
-        <h1>{S4ClassesTranslations.classes}</h1>
+        <h1>{translations.classes}</h1>
         <div>
           <figure>
-            <img src={image1} alt={S4ClassesTranslations.class1} />
-            <figcaption>{S4ClassesTranslations.class1}
+            <img src={image1} alt={translations.class1} />
+            <figcaption>{translations.class1}
               <p>
-                {CommonTranslations.shortDescription}
+                {translations.shortDescription}
               </p>
             </figcaption>
           </figure>
           <figure>
-            <img src={image2} alt={S4ClassesTranslations.class2} />
+            <img src={image2} alt={translations.class2} />
             <figcaption>
-              {S4ClassesTranslations.class2}
+              {translations.class2}
               <p>
-                {CommonTranslations.shortDescription}
+                {translations.shortDescription}
               </p>
             </figcaption>
           </figure>
           <figure>
-            <img src={image3} alt={S4ClassesTranslations.class3} />
+            <img src={image3} alt={translations.class3} />
             <figcaption>
-              {S4ClassesTranslations.class3}
+              {translations.class3}
               <p>
-                {CommonTranslations.shortDescription}
+                {translations.shortDescription}
               </p>
             </figcaption>
           </figure>
           <figure>
-            <img src={image4} alt={S4ClassesTranslations.class4} />
+            <img src={image4} alt={translations.class4} />
             <figcaption>
-              {S4ClassesTranslations.class4}
+              {translations.class4}
               <p>
-                {CommonTranslations.shortDescription}
+                {translations.shortDescription}
               </p>
             </figcaption>
           </figure>
@@ -51,8 +50,6 @@ const S4Classes = ({ className, translations }) => {
       </section>
   );
 };
- 
-
 
 S4Classes.propTypes = {
   className: PropTypes.string.isRequired,

@@ -7,8 +7,9 @@
     "flow"
   ],
   "plugins": [
-    "react-hot-loader/babel"
+    "react-hot-loader/babel",
     // Enables React code to work with HMR.
+    "transform-object-rest-spread"
   ],
   "env": {
       "test": {
