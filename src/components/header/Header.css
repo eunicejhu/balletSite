@@ -1,0 +1,76 @@
+
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great|Open+Sans+Condensed:300');
+
+:local(.navbar) {
+  position: fixed;
+  z-index: 1;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 0.6rem;
+  height: 7vh;
+  background-color: #FFFFFF;/*#FAE9E9;*/
+  padding: 0 5vw;
+}
+:local(.navbar_brand) {
+  flex: 1;
+  align-self: center;
+  font-size: 1rem;
+}
+
+@media (max-width: 360px) {
+  :local(.navbar_brand) {
+     font-size: 5vw;
+  }
+}
+
+:local(.navbar_nav) {
+  display: flex;
+  flex: 2;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+:local(.navbar_nav) li {
+  list-style-type: none;
+  padding: 4px 1vw;
+}
+
+:local(.navbar_nav) li a {
+  transition: 0.2s ease;
+}
+
+:local(.navbar_nav) li:hover a {
+  cursor: pointer;
+  border-bottom: 1px solid gray;
+}
+
+:local(.navbar_nav) li.active {
+  color: #FFB2B2;
+}
+
+:local(.navbar_nav) li.active a {
+   border-bottom: 1px solid #FFB2B2;
+}
+
+:local(.navbar_hamburger_menu) {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  :local(.navbar_nav) {
+    display: none;
+  }
+
+  :local(.navbar_hamburger_menu) {
+    display: block;
+    align-self: center;
+  }
+
+  :local(.navbar_hamburger_menu):hover {
+    cursor: pointer;
+  }
+}

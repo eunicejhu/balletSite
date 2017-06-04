@@ -1,9 +1,388 @@
-:local(.root) {
-  background-color: #fff;
-  padding: 10px;
-  color: black;
+/*@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great|Open+Sans+Condensed:300');*/
+@keyframes slide {
+  0%{
+    transform: translateY(-30%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
 
-:local(.bold) {
-  color: red;
+:local(.main) {
+  font-family: 'Fredericka the Great', cursive;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+:local(.main) h1 {
+  font-size: 3vw;
+}
+
+/* S1Image styles */
+:local(.image) {
+  height: 100vh;
+}
+
+:local(.image) video {
+  min-width: 100%;
+  min-height: 92vh;
+  width: auto;
+  height: auto;
+  position: fixed;
+  z-index: -1;
+  transition: 1s opacity;
+  background-size: 100%;
+}
+
+:local(.image) h1 {
+  position: fixed;
+  font-size: 64px;
+  z-index: -1;
+  width: 100%;
+  line-height: 92vh;
+  text-align: center;
+  text-shadow: 7px 5px 11px black;
+  color: #ce8888;
+  animation: slide 2s 0.2s ease;
+}
+
+:local(.image) figure {
+  display: none;
+  position: fixed;
+  z-index: -1;
+}
+
+@media (max-width: 960px) {
+  :local(.image) video {
+    display: none;
+  }
+
+  :local(.image) h1 {
+    display: none;
+  }
+  :local(.image) figure {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: center;
+    height: 100vh;
+  }
+  :local(.image) figure img {
+    height: 91vh;  
+    width: 100%;
+    object-fit: cover;
+  }
+
+  :local(.image) figure figcaption {
+    animation: slide 2s 0.2s cubic-bezier(.25,.85,.4,.83);
+    align-self: center;
+    position: absolute;
+    top: 0;
+    font-size: 2.2rem;
+    text-shadow: 1px 3px 13px white;
+    color: rgb(245, 132, 132);
+    height: 79vh;
+    line-height: 79vh;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+@media (max-width: 600px) {
+  :local(.image) figure figcaption {
+    font-size: 6vw;
+  }
+}
+
+/* gut styles */
+:local(.gut) {
+  position: absolute;
+  top: 88vh;
+  height: 11vh;
+  background-color: transparent;;
+  width: 100%;
+}
+:local(.gut) div {
+  width: 100%;
+  z-index: 1;
+  text-align: center;
+  transform: translateY(90%);
+}
+:local(.gut) span.split {
+  border-right: 2px solid #FFB2B2;
+}
+
+:local(.gut) h1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0 10vw;
+  background-color: white;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 960px) {
+  :local(.gut) h1 {
+    margin: 0;
+  }
+}
+
+/* S2UpcomingEvents styles */
+:local(.upcomingEvents) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+}
+
+:local(.upcomingEvents) article {
+  width: 100vw;
+}
+
+:local(.upcomingEvents) article figure {
+  display: flex;
+  flex-direction: row;
+  margin: 8vh 10vw 0 10vw;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+:local(.upcomingEvents) article:last-child  figure{
+  margin-bottom: 8vh;
+}
+
+:local(.upcomingEvents) article figure img {
+  width: 36rem;
+  object-fit: cover;
+  margin-left: 2vw;
+  transition: 0.5s ease;
+}
+
+@media (max-width: 1200px) {
+  :local(.upcomingEvents) article figure img {
+    width: 48vw;
+    object-fit: cover;
+  }
+} 
+
+@media (max-width: 840px) {
+  :local(.upcomingEvents) article figure img {
+    width: 48vw;
+    object-fit: cover;
+  }
+}
+
+:local(.upcomingEvents) article figure figcaption {
+  margin-left: 2vw;
+  width: 23vw;
+}
+
+@media (max-width: 840px) {
+   :local(.upcomingEvents) article figure figcaption {
+      margin-left: 2vw;
+      width: auto;
+    }
+}
+
+:local(.upcomingEvents) article figure figcaption h2 {
+  font-size: 2.4rem;
+  margin-bottom: 2vh;
+}
+
+@media (max-width: 840px) {
+  :local(.upcomingEvents) article figure figcaption h2 {
+    font-size: 1.6rem;
+  }
+}
+
+:local(.upcomingEvents) article figure figcaption time {
+  font-size: 0.7rem;
+  margin-left: 5vw;
+}
+
+:local(.upcomingEvents) article figure figcaption p {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 0.7rem;
+  margin-left: 5vw;
+}
+
+:local(.upcomingEvents) article figure figcaption button {
+  font-size: 0.8rem;
+  font-family: 'Open Sans Condensed', sans-serif;
+  height: 2rem;
+  width: 8rem;
+  background-color: transparent;
+  border: 2px solid rgb(245, 132, 132);
+  color: rgb(245, 132, 132);
+  transition: 0.5s ease;
+  margin-top: 2vh;
+  
+}
+
+:local(.upcomingEvents) article figure figcaption button:hover {
+  background: rgb(245, 132, 132);
+  color: white;
+  cursor: pointer;
+}
+
+/* S3School styles */
+:local(.school) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 12vh;
+  padding-bottom: 18vh;
+  background: url(../../../static/images/3.jpeg) no-repeat;
+  background-size: cover;
+  background-position: 10%;
+}
+
+:local(.school) h1 {
+  align-self: center;
+  padding-bottom: 6vh;
+  font-size: 2rem;
+}
+:local(.school) p {
+  padding: 3vh 20vw;
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-align: center;
+  font-size: 1rem;
+  text-shadow: 8px 4px 16px black;
+  color: #dcd8d8;
+  background-color: rgba(0,0,0, 0.2);
+}
+
+/* S4Classes styles */
+:local(.classes) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 8vh;
+  padding-bottom: 18vh;
+  background-color: white;
+}
+
+:local(.classes) h1 {
+  font-size: 2rem;
+}
+
+:local(.classes) div {
+  margin-top: 10vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100vw;
+}
+
+:local(.classes) div figure {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+:local(.classes) div figure img {
+  width: 25vw;
+  height: 25vh;
+  object-fit: cover;
+}
+
+:local(.classes) div figure figcaption {
+  padding-top: 1rem;
+  width: 20vw;
+}
+
+:local(.classes) div figure figcaption p {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 1200px) {
+  :local(.school) p {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 960px) {
+  :local(.classes) {
+    padding-top: 4vh;
+    padding-bottom: 8vh;
+  }
+
+  :local(.classes) div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100vw;
+  }
+
+  :local(.classes) div figure {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+  }
+
+  :local(.classes) div figure img {
+    width: 20rem;
+    height: 12rem;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 720px) {
+  :local(.school) {
+    padding-top: 4vh;
+    padding-bottom: 8vh;
+  }
+
+  :local(.school) h1
+  {
+    padding-bottom: 4vh;
+  }
+
+  :local(.school) p {
+    padding: 3vh 3vw;
+  }
+
+  :local(.upcomingEvents) article figure {
+    flex-direction: column;
+  }
+
+  :local(.upcomingEvents) article figure img {
+    width: 80vw;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 600px) {
+  :local(.classes) div figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+  }
+
+  :local(.classes) div figure img {
+    width: 100vw;
+    object-fit: cover;
+  }
+
+  :local(.classes) div figure figcaption {
+    width: 80vw;
+  }
 }

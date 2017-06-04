@@ -18,13 +18,10 @@ html {
 body {
   margin: 0;
   font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  color: #9B8A8A;
 }
 
-h1, h2, h3, h4, h5, h6, p, ul {
+h1, h2, h3, h4, h5, h6, p, ul, figure {
   margin: 0;
   padding: 0;
-}
-
-div.hello {
-  color: yellow;
 }

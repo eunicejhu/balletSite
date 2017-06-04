@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 // Page
 import Header from './components/header/Header';
-import Home from './components/home/Home';
+import Main from './components/main/Main';
 import Footer from './components/footer/Footer';
 
 const DEFAULT_LOCAL = 'en';
@@ -20,10 +20,12 @@ class App extends Component {
   render() {
     const { local } = this.state;
     return (
-      <div id="app">
-        <Header local={local} />
-        <Home local={local} />
-        <Footer local={local} />
+      <div id="wrapper">
+        <header><Header local={local} /></header>
+        <main>
+          <Main local={local} />
+        </main>
+        <footer><Footer local={local} /></footer>
       </div>
     );
   }
