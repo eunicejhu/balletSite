@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import galaImage from '../../../static/images/10.jpg';
-import stageImage from '../../../static/images/4.jpg';
+import galaImage from '../../../../static/images/10.jpg';
+import stageImage from '../../../../static/images/4.jpg';
 
 const S2UpcomingEvents = ({ className, translations }) => {
   return (

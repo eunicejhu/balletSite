@@ -242,7 +242,7 @@
   justify-content: flex-start;
   padding-top: 12vh;
   padding-bottom: 18vh;
-  background: url(../../../static/images/3.jpeg) no-repeat;
+  background: url(../../../../static/images/3.jpeg) no-repeat;
   background-size: cover;
   background-position: 10%;
 }

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import image1 from '../../../static/images/14.jpg';
-import image2 from '../../../static/images/11.jpg';
-import image3 from '../../../static/images/15.jpg';
-import image4 from '../../../static/images/16.jpg';
+import image1 from '../../../../static/images/14.jpg';
+import image2 from '../../../../static/images/11.jpg';
+import image3 from '../../../../static/images/15.jpg';
+import image4 from '../../../../static/images/16.jpg';
 
 const S4Classes = ({ className, translations }) => {
   return (

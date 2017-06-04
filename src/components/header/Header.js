@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './Header.css';
 import { propertyOf } from 'underscore';
+import  NAV_MENUS from '../../utils/constants/menus';
 
-import getPathFromTabName from '../../utils/routes/getPathFromTabName';
+import getPathFromMenu from '../../utils/routes/getPathFromMenu';
 
 import getTranslationsFromLocal from '../../utils/languages/getTranslationsFromLocal';
-
-const NAV_MENUS = [
-  'HOME',
-  'INSCRIPTION', 
-  'EVENTS', 
-  'EQUIPEMENTS', 
-  'CONTACT',
-];
 
 class Header extends Component {
   constructor(props) {
@@ -38,8 +32,11 @@ class Header extends Component {
           key={index} 
           className={['navbar-nav-', menu.toLowerCase(), isActive ? ' ' + styles.active : ''].join('')} 
           onClick={() => this.setState({activeMenuIndex: index})} >
-          <a>{ menuTranslation.toUpperCase() }
-          </a>
+          <Link 
+            style={{color: 'inherit', textDecoration: 'none'}} 
+            to={getPathFromMenu(menuTranslation.toLowerCase())}>
+            { menuTranslation.toUpperCase() }
+          </Link>
         </li>
       );
     }

@@ -37,7 +37,6 @@ class Address extends Component {
         </GoogleMap>
       ))
     );
-    console.log('render from address');
     return (
       <figure className={className}>
         <GettingStartedGoogleMap

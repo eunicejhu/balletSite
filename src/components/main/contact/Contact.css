@@ -1,0 +1,6 @@
+:local(.contact) {
+  height: 55.1vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

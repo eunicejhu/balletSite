@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Home.css';
 
-import getTranslationsFromLocal from '../../utils/languages/getTranslationsFromLocal';
+import getTranslationsFromLocal from '../../../utils/languages/getTranslationsFromLocal';
 import S1Image from './S1Image';
 import Stub from './Stub';
 import S2UpcomingEvents from './S2UpcomingEvents';
@@ -11,6 +11,7 @@ import S4Classes from './S4Classes';
 
 const Home = (props) => {
   const { local, ...routeProps } = props;
+  console.log('routeProps: ', routeProps);
   const { 
     HomeS1ImageTranslations, 
     S2UpcomingEventsTranslations,
