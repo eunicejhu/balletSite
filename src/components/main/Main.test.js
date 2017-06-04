@@ -2,7 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Main from './Main';
 
-const props = {};
+const props = {
+  local: 'en',
+};
 const MainWrapper = shallow(<Main {...props} />);
 const routes = [
   '/',

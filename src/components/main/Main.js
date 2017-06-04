@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { withRouter, Switch, Route } from 'react-router-dom';
-// import PropTypes from 'prop-types';
-// import getTranslationsFromLocal from '../../utils/languages/getTranslationsFromLocal';
+import { Switch, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Home from '../home/Home';
 import Inscription from './inscription/Inscription';
@@ -29,7 +28,7 @@ class Main extends Component {
 }
 
 Main.propTypes = {
-
+  local: PropTypes.string.isRequired,
 };
 
-export default withRouter(Main);
+export default Main;
