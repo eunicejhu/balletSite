@@ -14,10 +14,12 @@ class Header extends Component {
     super(props);
     this.state = {
       activeMenuIndex: 0,
+      hamburgerMenuIsOpened: false,
     };
     const { HeaderTranslations } = getTranslationsFromLocal(props.local);
     this.HeaderTranslations = HeaderTranslations;
     this.renderMenusJSX = this.renderMenusJSX.bind(this);
+    this.hideMenu = this.hideMenu.bind(this);
   }
 
   renderMenusJSX() {
@@ -31,7 +33,7 @@ class Header extends Component {
         <li 
           key={index} 
           className={['navbar-nav-', menu.toLowerCase(), isActive ? ' ' + styles.active : ''].join('')} 
-          onClick={() => this.setState({activeMenuIndex: index})} >
+          onClick={() => this.setState({activeMenuIndex: index, hamburgerMenuIsOpened: false})} >
           <Link 
             style={{color: 'inherit', textDecoration: 'none'}} 
             to={getPathFromMenu(menuTranslation.toLowerCase())}>
@@ -43,21 +45,43 @@ class Header extends Component {
     );
   }
 
+  hideMenu() {
+    this.setState({hamburgerMenuIsOpened: false});
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.hideMenu.bind(this));
+  }
+  componentWillUnMount() {
+    window.removeEventListener('resize', this.hideMenu.bind(this));
+  }
+
   render() {
     const HeaderTranslations = this.HeaderTranslations;
+    const { hamburgerMenuIsOpened } = this.state;
     const MenusJSX = this.renderMenusJSX();
 
     return (
         <nav className={styles.navbar}>
-          <div className={styles.navbar_brand}>
-            <span className="navbar-brand-name">{ HeaderTranslations.brandName }</span>
+          <div className={styles.navbar__brand}>
+            <span>{ HeaderTranslations.brandName }</span>
           </div>
-          <ul className={styles.navbar_nav}>
-            {MenusJSX}
-          </ul>
-          <div className={styles.navbar_hamburger_menu}>
+          <div 
+            onClick={() => this.setState({hamburgerMenuIsOpened: !hamburgerMenuIsOpened})} 
+            className={styles.navbar__menu__hamburger}>
             MENU
           </div>
+          <div 
+            className={[
+              styles.navbar__menu__items, 
+              hamburgerMenuIsOpened ? styles.open : ''].join(' ')}>
+            {MenusJSX}
+          </div>
+          <div 
+            ref="revealer" 
+            className={[
+              styles.navbar__menu__revealer, 
+              hamburgerMenuIsOpened ? styles.open : styles.close].join(' ')} />
       </nav>
     );
   }

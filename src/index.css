@@ -1,5 +1,4 @@
 /*
-TODO:
   - Applies a natural box layout model to all elements.
   - Set default font family.
   - Strip margin and padding from core elements.
@@ -11,17 +10,27 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: inherit;
 }
 
 body {
-  margin: 0;
+  color: #9b8a8a;
   font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  color: #9B8A8A;
+  margin: 0;
 }
 
-h1, h2, h3, h4, h5, h6, p, ul, figure {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+figure {
   margin: 0;
   padding: 0;
 }

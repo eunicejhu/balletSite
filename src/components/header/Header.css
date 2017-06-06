@@ -1,76 +1,140 @@
-
 @import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great|Open+Sans+Condensed:300');
 
+:root {
+  --mainColor: #ffb2b2;
+}
+
 :local(.navbar) {
-  position: fixed;
-  z-index: 1;
-  width: 100vw;
+  background-color: #fff;
   display: flex;
   flex-direction: row;
   font-family: 'Fredericka the Great', cursive;
   font-size: 0.6rem;
   height: 7vh;
-  background-color: #FFFFFF;/*#FAE9E9;*/
   padding: 0 5vw;
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
 }
-:local(.navbar_brand) {
-  flex: 1;
+
+:local(.navbar__brand) {
   align-self: center;
+  flex: 1;
   font-size: 1rem;
 }
 
-@media (max-width: 360px) {
-  :local(.navbar_brand) {
-     font-size: 5vw;
+:local(.navbar__menu__hamburger) {
+  display: none;
+  position: absolute;
+  right: 2rem;
+
+  &:hover {
+    cursor: pointer;
+    color: var(--mainColor);
   }
 }
 
-:local(.navbar_nav) {
+/* .navbar__menu__items styles */
+:local(.navbar__menu__items) {
+  align-items: center;
   display: flex;
   flex: 2;
   flex-direction: row;
-  align-items: center;
   justify-content: flex-end;
+
+  & li {
+    list-style-type: none;
+    padding: 4px 1vw;
+
+    &.active {
+      color: var(--mainColor);
+    }
+
+    & a {
+      transition: 0.2s ease;
+    }
+
+    &:hover a {
+      border-bottom: 1px solid gray;
+      cursor: pointer;
+    }
+
+    &.active a {
+      border-bottom: 1px solid var(--mainColor);
+    }
+  }
 }
 
-:local(.navbar_nav) li {
-  list-style-type: none;
-  padding: 4px 1vw;
-}
+:local(.navbar__menu__revealer) {
+  position: absolute;
+  left: 100vw;
+  width: 100vw;
+  height: 100vh;
+  filter: blur(5px);
+  background: url(../../../static/images/6.jpg) no-repeat center center;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.1);
+  opacity: 0;
 
-:local(.navbar_nav) li a {
-  transition: 0.2s ease;
-}
+  &.open {
+    left: 0;
+    opacity: 0.9;
+    transition: left 0.4s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.4s ease-in;
+  }
 
-:local(.navbar_nav) li:hover a {
-  cursor: pointer;
-  border-bottom: 1px solid gray;
-}
-
-:local(.navbar_nav) li.active {
-  color: #FFB2B2;
-}
-
-:local(.navbar_nav) li.active a {
-   border-bottom: 1px solid #FFB2B2;
-}
-
-:local(.navbar_hamburger_menu) {
-  display: none;
+  &.close {
+    opacity: 0;
+    transition: opacity 0.2s ease-in 0.4s, left 0.4s ease-in;
+  }
 }
 
 /* Responsive */
 @media (max-width: 960px) {
-  :local(.navbar_nav) {
-    display: none;
+  :local(.navbar__menu__items) {
+    opacity: 0;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    & li {
+      opacity: 0;
+      z-index: 1;
+      font-size: 1.2rem;
+      padding: 2vh 0;
+    }
   }
 
-  :local(.navbar_hamburger_menu) {
-    display: block;
+  :local(.navbar__menu__items.open) {
+    opacity: 1;
+
+    & li {
+      opacity: 1;
+      transition: opacity 0.6s 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+  }
+
+  :local(.navbar__menu__hamburger) {
     align-self: center;
+    display: block;
+    z-index: 1;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  :local(.navbar__brand) {
+    font-size: 5vw;
   }
 
-  :local(.navbar_hamburger_menu):hover {
-    cursor: pointer;
+  :local(.navbar__menu__items) li {
+    font-size: 5vw;
   }
 }

@@ -1,13 +1,13 @@
 :local(.footer) {
+  background-color: #616161;
   font-size: 0.6rem;
   text-align: center;
-  background-color: #616161;
 }
 
 :local(.footer) > div {
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
 }
 
@@ -16,25 +16,25 @@
 }
 
 :local(.address) {
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
   height: 40vh;
+  justify-content: center;
   width: 90vw;
 }
 
 :local(.address) > map {
-    width: 30%;
-    height: 30vh;
-  }
+  height: 30vh;
+  width: 30%;
+}
 
 :local(.share) div:hover {
   cursor: hover;
 }
 
 @media (max-width: 760px) {
-  :local(.address) >  map {
+  :local(.address) > map {
     width: 70%;
   }
 }

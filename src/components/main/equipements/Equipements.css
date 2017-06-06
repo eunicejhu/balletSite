@@ -1,6 +1,6 @@
 :local(.equipements) {
-  height: 55.1vh;
-  display: flex;
   align-items: center;
+  display: flex;
+  height: 55.1vh;
   justify-content: center;
 }

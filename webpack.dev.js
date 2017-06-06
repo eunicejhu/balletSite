@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
@@ -52,10 +51,18 @@ const config = {
             loader: 'css-loader',
             options: {
               module: true,
+              importLoaders: 1,
+              localIdentName: '[path][name]__[local]--[hash:base64:5]',
             },
           },
           {
             loader: 'postcss-loader',
+          },
+          {
+            loader: 'stylefmt-loader',
+            options: {
+              config: '.stylelintrc',
+            },
           },
         ],
       },
@@ -64,9 +71,6 @@ const config = {
   plugins: [
     new webpack.LoaderOptionsPlugin({
       options: {
-        postcss: function() {
-          return [autoprefixer];
-        },
         devServer: {
           colors: true, 
           historyApiFallback: false,
