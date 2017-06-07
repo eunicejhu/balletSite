@@ -27,12 +27,15 @@ https://dxxzq.info
 ### [See Demo](https://dxxzq.info)
 
 TODO:
-  - enable css variable
-  - import file
-
+  
 DONE: 
   - [setup styleline](http://tomasalabes.me/blog/_site/web-development/2016/08/26/Webpack-Series-Part-3.html)
   - VS code enable precss syntax, without getting error
     > [solution](https://github.com/Microsoft/vscode/issues/3907)
+  - enable css variable (precss)
+  - import file
+  - extract css (postcss-loader)
+  - import font file
+
 
 

@@ -1,10 +1,11 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
   devtool: 'inline-source-map',
-
+  context: path.resolve(__dirname, 'src'),
   entry: [
     'react-hot-loader/patch',
     // activate HMR for React
@@ -12,25 +13,29 @@ const config = {
     // 'webpack/hot/only-dev-server',
     // bundle the client for hot reloading
     // only- means to only hot reload for successful updates
-
-    path.join(__dirname, 'src', 'index.js'),
+    './index.js',
   ],
   
   output: {
-    path: path.join(__dirname, 'build'),
-    filename: 'bundle.js',
+    path: path.join(__dirname, 'src/build'),
+    filename: '[name].bundle.js',
     publicPath: '/',
     // necessary for HMR to know where to load the hot update chunks
   },
   module: {
     rules: [
       {
-        test: /\.json$/,
-        use: ['json-loader'],
-      },
-      {
         test: /\.(jpe?g|gif|png|svg|woff|ttf|wav|mp3|mp4)$/,
-        use: ['file-loader'],
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/',
+              publicPath: '/',
+            },
+          },
+        ],
       },
       {
         test: /\.jsx?$/,
@@ -39,32 +44,28 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader',
-            // add CSS to the DOM
-            options: {
-              sourceMap: true,
+        use: ExtractTextPlugin.extract({ 
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                module: true,
+                importLoaders: 1,
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              },
             },
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              module: true,
-              importLoaders: 1,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]',
+            {
+              loader: 'postcss-loader',
             },
-          },
-          {
-            loader: 'postcss-loader',
-          },
-          {
-            loader: 'stylefmt-loader',
-            options: {
-              config: '.stylelintrc',
+            {
+              loader: 'stylefmt-loader',
+              options: {
+                config: '.stylelintrc',
+              },
             },
-          },
-        ],
+          ],
+        }),
       },
     ],
   },
@@ -91,6 +92,7 @@ const config = {
     // enable HMR globally
     new webpack.NamedModulesPlugin(),
     // prints more readable module names in the browser console on HMR updates
+    new ExtractTextPlugin('[name].bundle.css'),
   ],
 };
 

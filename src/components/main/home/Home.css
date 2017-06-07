@@ -1,4 +1,3 @@
-/*@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great|Open+Sans+Condensed:300');*/
 @keyframes slide {
   0% {
     opacity: 0;
@@ -15,7 +14,7 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'BalletTitleFont', cursive;
 }
 
 :local(.main) h1 {
@@ -214,7 +213,7 @@
 }
 
 :local(.upcomingEvents) article figure figcaption p {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'BalletDescriptionFont', sans-serif;
   font-size: 0.7rem;
   margin-left: 5vw;
 }
@@ -223,7 +222,7 @@
   background-color: transparent;
   border: 2px solid rgb(245, 132, 132);
   color: rgb(245, 132, 132);
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'BalletDescriptionFont', sans-serif;
   font-size: 0.8rem;
   height: 2rem;
   margin-top: 2vh;
@@ -240,7 +239,7 @@
 /* S3School styles */
 :local(.school) {
   align-items: center;
-  background: url(../../../../static/images/3.jpeg) no-repeat;
+  background: url(../../../assets/images/3.jpeg) no-repeat;
   background-position: 10%;
   background-size: cover;
   display: flex;
@@ -259,7 +258,7 @@
 :local(.school) p {
   background-color: rgba(0, 0, 0, 0.2);
   color: #dcd8d8;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'BalletDescriptionFont', sans-serif;
   font-size: 1rem;
   padding: 3vh 20vw;
   text-align: center;
@@ -309,7 +308,7 @@
 }
 
 :local(.classes) div figure figcaption p {
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'BalletDescriptionFont', sans-serif;
   font-size: 0.7rem;
 }
 

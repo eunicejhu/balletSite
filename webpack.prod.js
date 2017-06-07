@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
@@ -9,7 +8,7 @@ const config = {
   ],
   
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, '/src/dist'),
     filename: 'prod.bundle.js',
     publicPath: '/ballet/',
     sourceMapFilename: 'prod.map',
@@ -43,6 +42,8 @@ const config = {
             loader: 'css-loader',
             options: {
               module: true,
+              importLoaders: 1,
+              localIdentName: '[path][name]__[local]--[hash:base64:5]',
             },
           },
           {
@@ -53,13 +54,6 @@ const config = {
     ],
   },
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        postcss: function() {
-          return [autoprefixer];
-        },
-      },
-    }),
     new webpack.BannerPlugin('Author: ZUOQIN HU'),
     new HtmlWebpackPlugin({
       showErrors: true,

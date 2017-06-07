@@ -3,6 +3,18 @@
   - Set default font family.
   - Strip margin and padding from core elements.
 */
+@import "normalize.css";
+@import "./assets/stylesheets/_colors.css";
+
+@font-face {
+  font-family: 'BalletTitleFont';
+  src: url(./assets/fonts/Poiret_One/PoiretOne-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'BalletDescriptionFont';
+  src: url(./assets/fonts/Raleway/Raleway-ExtraLight.ttf);
+}
 
 html {
   box-sizing: border-box;
@@ -17,7 +29,7 @@ html {
 }
 
 body {
-  color: #9b8a8a;
+  color: $bodyFontBlack;
   font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
   margin: 0;
 }

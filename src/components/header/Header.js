@@ -15,11 +15,15 @@ class Header extends Component {
     this.state = {
       activeMenuIndex: 0,
       hamburgerMenuIsOpened: false,
+      originalBodyOverflow: document.body.style.overflow,
     };
     const { HeaderTranslations } = getTranslationsFromLocal(props.local);
     this.HeaderTranslations = HeaderTranslations;
     this.renderMenusJSX = this.renderMenusJSX.bind(this);
     this.hideMenu = this.hideMenu.bind(this);
+    this.handleHamburgerMenuClick = this.handleHamburgerMenuClick.bind(this);
+    this.toggleBodyOverflow = this.toggleBodyOverflow.bind(this);
+    this.handleMenuItemClick = this.handleMenuItemClick.bind(this);
   }
 
   renderMenusJSX() {
@@ -33,7 +37,7 @@ class Header extends Component {
         <li 
           key={index} 
           className={['navbar-nav-', menu.toLowerCase(), isActive ? ' ' + styles.active : ''].join('')} 
-          onClick={() => this.setState({activeMenuIndex: index, hamburgerMenuIsOpened: false})} >
+          onClick={() => {this.handleMenuItemClick(index);}} >
           <Link 
             style={{color: 'inherit', textDecoration: 'none'}} 
             to={getPathFromMenu(menuTranslation.toLowerCase())}>
@@ -45,8 +49,29 @@ class Header extends Component {
     );
   }
 
+  handleMenuItemClick(index) {
+    this.toggleBodyOverflow(true);
+    this.setState({
+      activeMenuIndex: index, 
+      hamburgerMenuIsOpened: false,
+    });
+  }
+
+  handleHamburgerMenuClick() {
+    const { hamburgerMenuIsOpened } = this.state;
+    this.toggleBodyOverflow(hamburgerMenuIsOpened);
+    this.setState(prevState => ({
+      hamburgerMenuIsOpened : !prevState.hamburgerMenuIsOpened,
+    }));
+  }
+
+  toggleBodyOverflow(enable) {
+    document.body.style.overflow = enable ? this.state.originalBodyOverflow : 'hidden';
+  }
+
   hideMenu() {
     this.setState({hamburgerMenuIsOpened: false});
+    this.toggleBodyOverflow(true);
   }
 
   componentDidMount() {
@@ -67,7 +92,7 @@ class Header extends Component {
             <span>{ HeaderTranslations.brandName }</span>
           </div>
           <div 
-            onClick={() => this.setState({hamburgerMenuIsOpened: !hamburgerMenuIsOpened})} 
+            onClick={this.handleHamburgerMenuClick} 
             className={styles.navbar__menu__hamburger}>
             MENU
           </div>

@@ -1,4 +1,4 @@
 node_modules
-build
-dist
+src/build
+src/dist
 .vscode/chrome
