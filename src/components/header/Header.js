@@ -37,8 +37,9 @@ class Header extends Component {
         <li 
           key={index} 
           className={['navbar-nav-', menu.toLowerCase(), isActive ? ' ' + styles.active : ''].join('')} 
-          onClick={() => {this.handleMenuItemClick(index);}} >
+           >
           <Link 
+            onClick={() => {this.handleMenuItemClick(index);}}
             style={{color: 'inherit', textDecoration: 'none'}} 
             to={getPathFromMenu(menuTranslation.toLowerCase())}>
             { menuTranslation.toUpperCase() }

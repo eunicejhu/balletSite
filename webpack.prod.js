@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
   entry: [
@@ -16,12 +17,17 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.json$/,
-        use: ['json-loader'],
-      },
-      {
         test: /\.(jpe?g|gif|png|svg|woff|ttf|wav|mp3|mp4)$/,
-        use: ['file-loader'],
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/',
+              publicPath: '/',
+            },
+          },
+        ],
       },
       {
         test: /\.jsx?$/,
@@ -30,26 +36,22 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader',
-            // add CSS to the DOM
-            options: {
-              sourceMap: true,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use:  [
+            {
+              loader: 'css-loader',
+              options: {
+                module: true,
+                importLoaders: 1,
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              },
             },
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              module: true,
-              importLoaders: 1,
-              localIdentName: '[path][name]__[local]--[hash:base64:5]',
+            {
+              loader: 'postcss-loader',
             },
-          },
-          {
-            loader: 'postcss-loader',
-          },
-        ],
+          ],
+        }),
       },
     ],
   },
@@ -77,6 +79,7 @@ const config = {
       },
       comments: false,
     }),
+    new ExtractTextPlugin('[name].bundle.css'),
   ],
 };
 
