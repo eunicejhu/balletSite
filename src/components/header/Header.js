@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import styles from './Header.css';
 import { propertyOf } from 'underscore';
 import  NAV_MENUS from '../../utils/constants/menus';
+import HamburgerMenu from '../basic/HamburgerMenu';
 
 import getPathFromMenu from '../../utils/routes/getPathFromMenu';
 
@@ -59,6 +60,7 @@ class Header extends Component {
   }
 
   handleHamburgerMenuClick() {
+    console.log('handleHamburgerMenuClick ');
     const { hamburgerMenuIsOpened } = this.state;
     this.toggleBodyOverflow(hamburgerMenuIsOpened);
     this.setState(prevState => ({
@@ -92,11 +94,9 @@ class Header extends Component {
           <div className={styles.navbar__brand}>
             <span>{ HeaderTranslations.brandName }</span>
           </div>
-          <div 
-            onClick={this.handleHamburgerMenuClick} 
-            className={styles.navbar__menu__hamburger}>
-            MENU
-          </div>
+          <HamburgerMenu 
+            isActive={hamburgerMenuIsOpened}
+            onHandleClick={this.handleHamburgerMenuClick.bind(this)} />
           <div 
             className={[
               styles.navbar__menu__items, 

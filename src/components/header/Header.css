@@ -1,6 +1,6 @@
 @import "../../assets/stylesheets/_colors.css";
 
-:local(.navbar) {
+.navbar {
   background-color: $white;
   display: flex;
   flex-direction: row;
@@ -13,13 +13,13 @@
   z-index: 1;
 }
 
-:local(.navbar__brand) {
+.navbar__brand {
   align-self: center;
   flex: 1;
   font-size: 1rem;
 }
 
-:local(.navbar__menu__hamburger) {
+.navbar__menu__hamburger {
   display: none;
   position: absolute;
   right: 2rem;
@@ -32,7 +32,7 @@
 }
 
 /* .navbar__menu__items styles */
-:local(.navbar__menu__items) {
+.navbar__menu__items {
   align-items: center;
   display: flex;
   flex: 2;
@@ -62,7 +62,7 @@
   }
 }
 
-:local(.navbar__menu__revealer) {
+.navbar__menu__revealer {
   position: absolute;
   left: 100vw;
   width: 100vw;
@@ -88,7 +88,7 @@
 
 /* Responsive */
 @media (max-width: 960px) {
-  :local(.navbar__menu__items) {
+  .navbar__menu__items {
     width: 100%;
     height: 100vh;
     position: absolute;
@@ -108,7 +108,7 @@
     }
   }
 
-  :local(.navbar__menu__items.open) {
+  .navbar__menu__items.open {
     visibility: visible;
 
     & li {
@@ -129,7 +129,7 @@
     }
   }
 
-  :local(.navbar__menu__hamburger) {
+  .navbar__menu__hamburger {
     align-self: center;
     display: block;
     z-index: 3;
@@ -142,11 +142,11 @@
 }
 
 @media (max-width: 480px) {
-  :local(.navbar__brand) {
+  .navbar__brand {
     font-size: 5vw;
   }
 
-  :local(.navbar__menu__items) li {
+  .navbar__menu__items li {
     font-size: 5vw;
   }
 }

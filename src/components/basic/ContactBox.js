@@ -17,7 +17,7 @@ const ContactBox = (props) => (<section className={styles.wrapper}>
 </section>);
 
 ContactBox.propTypes = {
-  content: PropTypes.object.isRequired,
+  content: PropTypes.string.isRequired,
   coverTitle: PropTypes.string.isRequired,
   onHandleClick: PropTypes.func.isRequired,
 };
