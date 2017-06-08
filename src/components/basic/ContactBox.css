@@ -1,0 +1,117 @@
+@import "../../assets/stylesheets/_colors.css";
+
+.wrapper {
+  display: inline-block;
+  position: relative;
+  padding: 0 0.5rem;
+  height: 2.5rem;
+  background: $gray;
+  border-radius: 0.25rem;
+  perspective: 300;
+  box-shadow: 0 -1px 2px #fff, inset 0 1px 2px rgba(0, 0, 0, 0.2), inset 0 0.25rem 1rem rgba(0, 0, 0, 0.1);
+  font: 1.2em/2 'BalletTitleFont', cursive;
+
+  div {
+    transition-duration: 0.6s;
+  }
+}
+
+.button {
+  opacity: 0;
+  transition-timing-function: ease;
+  color: $hoverMenuPink;
+
+  &::after {
+    content: attr(content);
+  }
+}
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform-origin: center bottom;
+  transform-style: preserve-3d;
+  color: $white;
+  text-align: center;
+  pointer-events: none;
+}
+
+.inner,
+.outer,
+.shadow {
+  position: absolute;
+  width: 100%;
+}
+
+.inner,
+.outer {
+  height: 100%;
+  background-image: linear-gradient(to bottom, transparent 0%, $opaqueBlack 100%);
+  border-radius: 0.25rem;
+
+  &::after {
+    content: attr(title);
+  }
+}
+
+.inner {
+  background-color: $hoverMenuPink;
+  text-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.outer {
+  background-color: $hoverMenuPink;
+  transform: translateZ(0.25rem);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.shadow {
+  top: 100%; // move itself downside of it's parent's height
+  height: 3.5rem;
+  left: 0;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
+  border-radius: 0.4rem;
+  opacity: 0;
+  z-index: -1;
+}
+
+.wrapper:hover {
+  background: $gray;
+  cursor: pointer;
+
+  .button {
+    opacity: 1;
+    text-shadow: 0 2px 4px $opaqueBlack;
+    box-shadow: 0 1px 0px $opaqueBlack;
+  }
+
+  .cover,
+  .inner,
+  .outer {
+    transition-time-function: cubic-bezier(0.2, 0.7, 0.1, 1.1);
+  }
+
+  .cover {
+    transform: rotateX(-120deg);
+  }
+
+  .inner {
+    background-color: $hoverMenuPink;
+  }
+
+  .outer {
+    background-color: $hoverMenuPink;
+    color: rgb(255, 255, 255);
+  }
+
+  .shadow {
+    opacity: 1;
+    transform: rotateX(45deg) scale(0.95);
+  }
+}
+
+
+

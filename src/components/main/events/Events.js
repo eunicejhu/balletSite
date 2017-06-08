@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Events.css';
+import ContactBox from '../../basic/ContactBox';
 
-const Events = () => <div className={styles.events}>
-  Contact me for more information
+const Events = (props) => <div className={styles.events}>
+  <ContactBox {...props}  />
 </div>;
 
 export default Events;

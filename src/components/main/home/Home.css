@@ -303,6 +303,7 @@
   height: 25vh;
   object-fit: cover;
   width: 25vw;
+  transition: all 0.2s linear;
 }
 
 :local(.classes) div figure figcaption {

@@ -14,6 +14,9 @@ import reverse from '../../utils/array/reverse';
 class Main extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      location: window.location.pathname,
+    };
   }
   render() {
     const { local } = this.props; 

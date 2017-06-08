@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './Equipements.css';
-
+import ContactBox from '../../basic/ContactBox';
 const Equipements = () => <div className={styles.equipements}>
-  Contact me for more information
+  <ContactBox />
 </div>;
 
 export default Equipements;
