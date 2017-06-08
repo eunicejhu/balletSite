@@ -10,8 +10,7 @@ import S3School from './S3School';
 import S4Classes from './S4Classes';
 
 const Home = (props) => {
-  const { local, ...routeProps } = props;
-  console.log('routeProps: ', routeProps);
+  const { local } = props;
   const { 
     HomeS1ImageTranslations, 
     S2UpcomingEventsTranslations,

@@ -56,6 +56,11 @@ const config = {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
+    }),
     new webpack.BannerPlugin('Author: ZUOQIN HU'),
     new HtmlWebpackPlugin({
       showErrors: true,
