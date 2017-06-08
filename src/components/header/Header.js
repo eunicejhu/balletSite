@@ -60,7 +60,6 @@ class Header extends Component {
   }
 
   handleHamburgerMenuClick() {
-    console.log('handleHamburgerMenuClick ');
     const { hamburgerMenuIsOpened } = this.state;
     this.toggleBodyOverflow(hamburgerMenuIsOpened);
     this.setState(prevState => ({

@@ -19,18 +19,6 @@
   font-size: 1rem;
 }
 
-.navbar__menu__hamburger {
-  display: none;
-  position: absolute;
-  right: 2rem;
-  line-height: 7vh;
-
-  &:hover {
-    cursor: pointer;
-    color: $hoverMenuPink;
-  }
-}
-
 /* .navbar__menu__items styles */
 .navbar__menu__items {
   align-items: center;
@@ -126,17 +114,6 @@
       &:hover a {
         border-bottom: 1px solid $white;
       }
-    }
-  }
-
-  .navbar__menu__hamburger {
-    align-self: center;
-    display: block;
-    z-index: 3;
-    line-height: 7vh;
-
-    &:hover {
-      cursor: pointer;
     }
   }
 }
