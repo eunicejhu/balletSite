@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import styles from './Header.css';
 import { propertyOf } from 'underscore';
@@ -14,7 +15,7 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeMenuIndex: 0,
+      activeMenu: props.location.pathname,
       hamburgerMenuIsOpened: false,
       originalBodyOverflow: document.body.style.overflow,
     };
@@ -28,21 +29,22 @@ class Header extends Component {
   }
 
   renderMenusJSX() {
-    const { activeMenuIndex } = this.state;
+    const { activeMenu } = this.state;
     const HeaderTranslations = this.HeaderTranslations;
 
-    return NAV_MENUS.map((menu, index) => {
+    return NAV_MENUS.map(menu => {
       const menuTranslation = propertyOf(HeaderTranslations)(menu.toLowerCase());
-      const isActive = index === activeMenuIndex;
+      const menuPath = getPathFromMenu(menuTranslation.toLowerCase());
+      const isActive = menuPath  === activeMenu;
       return (
         <li 
-          key={index} 
+          key={menuPath} 
           className={['navbar-nav-', menu.toLowerCase(), isActive ? ' ' + styles.active : ''].join('')} 
            >
           <Link 
-            onClick={() => {this.handleMenuItemClick(index);}}
+            onClick={() => {this.handleMenuItemClick(menuPath);}}
             style={{color: 'inherit', textDecoration: 'none'}} 
-            to={getPathFromMenu(menuTranslation.toLowerCase())}>
+            to={menuPath}>
             { menuTranslation.toUpperCase() }
           </Link>
         </li>
@@ -51,10 +53,10 @@ class Header extends Component {
     );
   }
 
-  handleMenuItemClick(index) {
+  handleMenuItemClick(menuPath) {
     this.toggleBodyOverflow(true);
     this.setState({
-      activeMenuIndex: index, 
+      activeMenu: menuPath, 
       hamburgerMenuIsOpened: false,
     });
   }
@@ -116,4 +118,4 @@ Header.propTypes = {
   local: PropTypes.string.isRequired,
 };
 
-export default Header;
+export default withRouter(Header);

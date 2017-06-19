@@ -9,6 +9,9 @@ app.set('view engine', 'html');
 
 // set static path
 app.use(express.static(path.join(__dirname, '')));
+app.all('*', (req, res) => {
+  res.render(path.join(__dirname, './index.html'));
+});
 app.all('/', (req, res) => {
   res.render('index.html');
 });
