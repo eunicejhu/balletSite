@@ -46,6 +46,14 @@
         {
           "taskName": "devserver",
           "command": "node_modules/.bin/webpack-dev-server"
+        },
+        {
+          "taskName": "eslint fix",
+          "command": "node_modules/.bin/eslint",
+          "args": [
+            "--fix",
+            "${file}"
+          ]
         }
     ]
 }

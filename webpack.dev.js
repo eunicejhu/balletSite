@@ -2,25 +2,33 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 const config = {
   devtool: 'inline-source-map',
   context: path.resolve(__dirname, 'src'),
-  entry: [
-    'react-hot-loader/patch',
-    // activate HMR for React
+  entry: {
+    'app': [
+      'react-hot-loader/patch',
+      // activate HMR for React
 
-    // 'webpack/hot/only-dev-server',
-    // bundle the client for hot reloading
-    // only- means to only hot reload for successful updates
-    './index.js',
-  ],
-  
+      // 'webpack/hot/only-dev-server',
+      // bundle the client for hot reloading
+      // only- means to only hot reload for successful updates
+      './index.js',
+    ],
+  },
   output: {
     path: path.join(__dirname, 'src/build'),
     filename: '[name].bundle.js',
     publicPath: '/',
     // necessary for HMR to know where to load the hot update chunks
+  },
+  resolve: {
+    modules: [
+      path.resolve('./src/'),
+      path.resolve('./node_modules'),
+    ],
   },
   module: {
     rules: [
@@ -88,6 +96,7 @@ const config = {
       // favicon: favicon.ico,
       template: path.join(__dirname, 'src', 'index.tmpl.html'),
     }),
+    new ScriptExtHtmlWebpackPlugin({defaultAttribute: 'defer'}),
     new webpack.HotModuleReplacementPlugin(),
     // enable HMR globally
     new webpack.NamedModulesPlugin(),

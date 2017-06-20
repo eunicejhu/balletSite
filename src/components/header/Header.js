@@ -4,12 +4,12 @@ import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
 import styles from './Header.css';
 import { propertyOf } from 'underscore';
-import  NAV_MENUS from '../../utils/constants/menus';
+import  NAV_MENUS from 'utils/constants/menus';
 import HamburgerMenu from '../basic/HamburgerMenu';
 
-import getPathFromMenu from '../../utils/routes/getPathFromMenu';
+import getPathFromMenu from 'utils/routes/getPathFromMenu';
 
-import getTranslationsFromLocal from '../../utils/languages/getTranslationsFromLocal';
+import getTranslationsFromLocal from 'utils/languages/getTranslationsFromLocal';
 
 class Header extends Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class Header extends Component {
         <li 
           key={menuPath} 
           className={['navbar-nav-', menu.toLowerCase(), isActive ? ' ' + styles.active : ''].join('')} 
-           >
+        >
           <Link 
             onClick={() => {this.handleMenuItemClick(menuPath);}}
             style={{color: 'inherit', textDecoration: 'none'}} 
@@ -91,24 +91,24 @@ class Header extends Component {
     const MenusJSX = this.renderMenusJSX();
 
     return (
-        <nav className={styles.navbar}>
-          <div className={styles.navbar__brand}>
-            <span>{ HeaderTranslations.brandName }</span>
-          </div>
-          <HamburgerMenu 
-            isActive={hamburgerMenuIsOpened}
-            onHandleClick={this.handleHamburgerMenuClick.bind(this)} />
-          <div 
-            className={[
-              styles.navbar__menu__items, 
-              hamburgerMenuIsOpened ? styles.open : ''].join(' ')}>
-            {MenusJSX}
-          </div>
-          <div 
-            ref="revealer" 
-            className={[
-              styles.navbar__menu__revealer, 
-              hamburgerMenuIsOpened ? styles.open : styles.close].join(' ')} />
+      <nav className={styles.navbar}>
+        <div className={styles.navbar__brand}>
+          <span>{ HeaderTranslations.brandName }</span>
+        </div>
+        <HamburgerMenu 
+          isActive={hamburgerMenuIsOpened}
+          onHandleClick={this.handleHamburgerMenuClick.bind(this)} />
+        <div 
+          className={[
+            styles.navbar__menu__items, 
+            hamburgerMenuIsOpened ? styles.open : ''].join(' ')}>
+          {MenusJSX}
+        </div>
+        <div 
+          ref="revealer" 
+          className={[
+            styles.navbar__menu__revealer, 
+            hamburgerMenuIsOpened ? styles.open : styles.close].join(' ')} />
       </nav>
     );
   }

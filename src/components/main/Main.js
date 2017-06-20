@@ -7,9 +7,9 @@ import Inscription from './inscription/Inscription';
 import Events from './events/Events';
 import Equipements from './equipements/Equipements';
 import Contact from './contact/Contact';
-import MENUS, { HOME, INSCRIPTION, EVENTS, EQUIPEMENTS, CONTACT } from '../../utils/constants/menus';
-import getPathFromMenu from '../../utils/routes/getPathFromMenu';
-import reverse from '../../utils/array/reverse';
+import MENUS, { HOME, INSCRIPTION, EVENTS, EQUIPEMENTS, CONTACT } from 'utils/constants/menus';
+import getPathFromMenu from 'utils/routes/getPathFromMenu';
+import reverse from 'utils/array/reverse';
 
 class Main extends Component {
   constructor(props) {

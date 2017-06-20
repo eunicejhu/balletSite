@@ -1,22 +1,8 @@
-const express = require('express');
-const consolidate = require('consolidate');
-const path = require('path');
-const app =  express();
-
-
-
-// view engine setup
-app.engine('html', consolidate.swig);
-app.set('view engine', 'html');
-
-// set static path
-app.use(express.static(path.join(__dirname, '../src/build/')));
-app.all('*', (req, res) => {
-  res.render(path.join(__dirname, '../src/build/index.html'));
+require('babel-register')({
+  presets: ['es2015'],
 });
-
-app.all('/', (req, res) => {
-  res.render('./index.html');
-});
-
-app.listen(3002);
+if (process.env.NODE_ENV !== 'production') {
+  require('./server.dev');
+} else {
+  require('./server.prod');
+}
