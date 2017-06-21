@@ -7,14 +7,17 @@
     "flow"
   ],
   "plugins": [
-    "react-hot-loader/babel",
-    // Enables React code to work with HMR.
     "transform-object-rest-spread"
   ],
   "env": {
-      "test": {
-        "presets": ["es2015", "es2017", "react"],
-        "plugins": ["transform-es2015-modules-commonjs"]
-      }
+    "development": {
+      "plugins": ["react-hot-loader/babel"]
+    },
+    "test": {
+      "presets": ["es2015", "es2017", "react"],
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    }
   } 
 }

@@ -2,31 +2,35 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+// const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 
 const config = {
   devtool: 'inline-source-map',
-  context: path.resolve(__dirname, 'src'),
+  context: path.resolve(__dirname, '../'),
   entry: {
-    'app': [
+    app: [
       'react-hot-loader/patch',
-      // activate HMR for React
-
-      // 'webpack/hot/only-dev-server',
-      // bundle the client for hot reloading
-      // only- means to only hot reload for successful updates
-      './index.js',
+      './src/index.js',
+    ],
+    vendor: [
+      'react', 
+      'react-dom', 
+      'react-google-maps',
+      'react-router',
+      'react-router-dom',
+      'react-share',
+      'underscore',
     ],
   },
   output: {
-    path: path.join(__dirname, 'src/build'),
-    filename: '[name].bundle.js',
+    path: path.join(__dirname, './build'),
+    filename: '[name].[hash].js',
     publicPath: '/',
     // necessary for HMR to know where to load the hot update chunks
   },
   resolve: {
     modules: [
-      path.resolve('./src/'),
+      path.resolve('./src'),
       path.resolve('./node_modules'),
     ],
   },
@@ -78,25 +82,20 @@ const config = {
     ],
   },
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        devServer: {
-          colors: true, 
-          historyApiFallback: false,
-          inline: true,
-          hot: true,
-        },
-      },
+    // used to split out our sepcified vendor script
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: Infinity,
+      filename: '[name].[hash].js',
     }),
     new webpack.BannerPlugin('Author: ZUOQIN HU'),
     new HtmlWebpackPlugin({
       showErrors: true,
       cache: true,
-      // hash: true,
-      // favicon: favicon.ico,
-      template: path.join(__dirname, 'src', 'index.tmpl.html'),
+      template: './src/index.tmpl.html',
+      inject: 'body', 
     }),
-    new ScriptExtHtmlWebpackPlugin({defaultAttribute: 'defer'}),
+    // new ScriptExtHtmlWebpackPlugin({defaultAttribute: 'async'}),
     new webpack.HotModuleReplacementPlugin(),
     // enable HMR globally
     new webpack.NamedModulesPlugin(),

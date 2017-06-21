@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import welcomeImage from '../../../assets/images/1.jpeg';
-import welcomeVideo from '../../../assets/images/welcome_2.mp4';
+import welcomeVideo from '../../../assets/images/welcome_2_converted.mp4';
 
 const S1Image = ({ className, translations }) => (
   <section className={className}>

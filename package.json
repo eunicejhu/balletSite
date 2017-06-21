@@ -10,6 +10,7 @@
     "test": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest --no-cache --watch",
     "start": "NODE_ENV=development node server/server.js",
+    "devServer": "node webpack/webpack-dev-server.js",
     "build:dev": "webpack --env=dev --progress --profile --colors",
     "build:dist": "webpack --env=prod --progress --profile --colors"
   },
@@ -30,7 +31,6 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "devcert": "^0.3.2",
     "autoprefixer": "^7.1.1",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
@@ -44,6 +44,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.24.1",
     "css-loader": "^0.28.1",
+    "devcert": "^0.3.2",
     "enzyme": "^2.8.2",
     "eslint": "^4.0.0",
     "eslint-config-fbjs": "^1.1.1",
